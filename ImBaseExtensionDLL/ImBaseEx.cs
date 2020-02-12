@@ -4,19 +4,22 @@ using System.Diagnostics;
 
 namespace ImBaseExtensionDLL
 {
-    static class ImBaseEx
+    public static class ImBaseEx
     {
-        static ImbaseApplicationClass ImbApplication = new ImbaseApplicationClass();
-        static ImDataBaseClass ImDataBase = new ImDataBaseClass();
+        public static ImbaseApplicationClass ImApplication = new ImbaseApplicationClass();
+        public static ImDataBaseClass ImDataBase = new ImDataBaseClass();
 
+        public static void  CloseImbaseConnection()
+        {
+            ImApplication = null;
+            ImDataBase = null;
+        }
         //  public static ImbaseCatalogs Catalogs;       
         //  public static ImbaseCatalog Catalog;
         //  public static ImbaseFolder Folder;
-        //  public static IImbaseKey ImBase;
-               
-       
-        
-        public static string CheckByImbaseKey(string ImCode)
+        //  public static IImbaseKey ImBase;            
+
+        public static string GetFullDesignation(string ImCode)
         {
             ImDataBase.GetKeyInfo(ImCode, out string TableRecord, out string CatalogRecord, out string KeysList);
             //      Debug.WriteLine(TableRecord);
@@ -29,12 +32,7 @@ namespace ImBaseExtensionDLL
             int endIndex = CatalogRecord.IndexOf("\",КЛАСС=");
             //  Debug.WriteLine(endIndex);
 
-            string FullDesignation = CatalogRecord.Substring(startIndex, endIndex - startIndex);
-
-            Debug.WriteLine(FullDesignation);
-
-            
-            // Console.ReadLine();          
+            string FullDesignation = CatalogRecord.Substring(startIndex, endIndex - startIndex);                     
 
             return FullDesignation;
         }
@@ -47,11 +45,11 @@ namespace ImBaseExtensionDLL
             {
                 // Создаем новое подключение, если указатель нулевой
                 //
-                // if (ImbApplication == null) ImbApplication = CoImbaseApplication.Create();
+                // if (ImApplication == null) ImApplication = CoImbaseApplication.Create();
                 // Проверяем состояние сервера
                 while (!Done)
                 { // Опрос состояния
-                    switch (ImbApplication.Status)
+                    switch (ImApplication.Status)
                     {
                         case ImBaseLoadStatus.IST_READY:
                             Done = true;
@@ -72,7 +70,7 @@ namespace ImBaseExtensionDLL
 
                 return false;
             }
-            Debug.WriteLine(ImbApplication.Status);
+            Debug.WriteLine(ImApplication.Status);
             return true;
 
         }

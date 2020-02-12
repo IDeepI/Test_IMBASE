@@ -41,18 +41,17 @@ namespace Test_IMBASE
         static void Main()
         {
             Debug.WriteLine(TimeStart);
-           /* 
+           
             if (ImBaseEx.CheckImbaseConnection())
             {
                 foreach (string ImCode in ImCodes)
                 {
-                    ImBaseEx.CheckByImbaseKey(ImCode);
+                    Debug.WriteLine(ImBaseEx.GetFullDesignation(ImCode));
                     Debug.WriteLine(DateTime.Now - TimeStart);
-                }                
-            }*/
-       
+                }
+                ImBaseEx.CloseImbaseConnection();               
+            }  
         }
-
     }
 }
 
