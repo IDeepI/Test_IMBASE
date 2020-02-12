@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="ImBase.dll">
+      <Guid>559880e0-2233-11d2-89ab-00605204e498</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+    </COMReference>
+    <COMReference Include="TableView.dll">
+      <Guid>41240b69-f931-48be-ba22-45b1562e2569</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+    </COMReference>
+  </ItemGroup>
+
+</Project>

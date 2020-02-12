@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_IMBASE", "Test_IMBASE\Test_IMBASE.csproj", "{7B48F133-E4D3-464B-A696-621D9A21A829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_IMBASE", "Test_IMBASE\Test_IMBASE.csproj", "{7B48F133-E4D3-464B-A696-621D9A21A829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImBaseExtensionDLL", "ImBaseExtensionDLL\ImBaseExtensionDLL.csproj", "{5D457362-B115-4994-98D6-FD9D5F8DB269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7B48F133-E4D3-464B-A696-621D9A21A829}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B48F133-E4D3-464B-A696-621D9A21A829}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B48F133-E4D3-464B-A696-621D9A21A829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D457362-B115-4994-98D6-FD9D5F8DB269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D457362-B115-4994-98D6-FD9D5F8DB269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D457362-B115-4994-98D6-FD9D5F8DB269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D457362-B115-4994-98D6-FD9D5F8DB269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

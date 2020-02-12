@@ -1,20 +1,11 @@
-﻿using ImBase;
-using System;
+﻿using System;
 using System.Diagnostics;
-//ImBase_TLB
+using ImBaseExtensionDLL;
 
 namespace Test_IMBASE
 {
     class Program
     {
-        static ImbaseApplicationClass ImbApplication = new ImbaseApplicationClass();
-        static ImDataBaseClass ImDataBase = new ImDataBaseClass();
-
-        //   public static ImbaseCatalogs Catalogs;       
-        //  public static ImbaseCatalog Catalog;
-        //  public static ImbaseFolder Folder;
-        //  public static IImbaseKey ImBase;
-
         public static string[] ImCodes =
         {
             "i609010608031E000187",
@@ -45,78 +36,21 @@ namespace Test_IMBASE
             "i6090106080365000022",
             "i6090106080E5900000C"
         };
+
         static DateTime TimeStart = DateTime.Now;
         static void Main()
         {
             Debug.WriteLine(TimeStart);
-
-            if (CheckImbaseConnection())
+           /* 
+            if (ImBaseEx.CheckImbaseConnection())
             {
-                var a = CheckByImbaseKey("i6090106080365000022");
-            }
-        }
-
-        public static string CheckByImbaseKey(string ImCode)
-        {
-            ImDataBase.GetKeyInfo(ImCode, out string TableRecord, out string CatalogRecord, out string KeysList);
-            //      Debug.WriteLine(TableRecord);
-            //      Debug.WriteLine(CatalogRecord);
-            //      Debug.WriteLine(KeysList);
-
-            int startIndex = CatalogRecord.IndexOf("\"ПОЛНОЕ ОБОЗНАЧЕНИЕ=") + 20;
-            //  Debug.WriteLine(startIndex);
-
-            int endIndex = CatalogRecord.IndexOf("\",КЛАСС=");
-            //  Debug.WriteLine(endIndex);
-
-            var FullDesignation = CatalogRecord.Substring(startIndex, endIndex - startIndex);
-
-            Debug.WriteLine(FullDesignation);
-
-            Debug.WriteLine(DateTime.Now - TimeStart);
-            // Console.ReadLine();
-            ImbApplication = null;
-            ImDataBase = null;
-
-            return FullDesignation;
-        }
-
-
-        static bool CheckImbaseConnection()
-        {
-            bool Done = false;
-            try
-            {
-                // Создаем новое подключение, если указатель нулевой
-                //
-                // if (ImbApplication == null) ImbApplication = CoImbaseApplication.Create();
-                // Проверяем состояние сервера
-                while (!Done)
-                { // Опрос состояния
-                    switch (ImbApplication.Status)
-                    {
-                        case ImBaseLoadStatus.IST_READY:
-                            Done = true;
-                            break; // Система готова
-                        case ImBaseLoadStatus.IST_WAITFORLOGIN:
-                        case ImBaseLoadStatus.IST_INTERNALLOADING:
-                            // Система ожидает ввода пароля или загружается. Надо подождать.
-                            System.Threading.Thread.Sleep(10);
-                            break;
-                    } // switch
-                } // while
-            } // try
-            catch (Exception e)
-            {
-                Debug.WriteLine("Exception: " + e.Message);
-
-                // System.Windows.Forms.MessageBox.(e);
-
-                return false;
-            }
-            Debug.WriteLine(ImbApplication.Status);
-            return true;
-
+                foreach (string ImCode in ImCodes)
+                {
+                    ImBaseEx.CheckByImbaseKey(ImCode);
+                    Debug.WriteLine(DateTime.Now - TimeStart);
+                }                
+            }*/
+       
         }
 
     }
